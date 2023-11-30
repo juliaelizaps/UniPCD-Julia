@@ -45,6 +45,10 @@ export function ForgottenPassword() {
                         <AlertIcon />
                         Um link de recuperação foi enviado para o seu e-mail.
                     </Alert>
+                    <Text mb={4}>
+                        Por favor, verifique seu e-mail para continuar o processo de
+                        recuperação de senha.
+                    </Text>
                     <Button colorScheme="teal" mt={4} onClick={() => setIsEmailSent(false)}>
                         Anterior
                     </Button>
