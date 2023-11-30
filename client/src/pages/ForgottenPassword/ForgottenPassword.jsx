@@ -1,4 +1,3 @@
-// ForgotPassword.jsx
 import React, { useState } from 'react';
 import {
     Box,
@@ -11,6 +10,7 @@ import {
     Alert,
     AlertIcon,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 export function ForgottenPassword() {
     const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ export function ForgottenPassword() {
     };
 
     const handleSendLink = async () => {
-        //  colocar aqui a logíca de como enviar :)
+        // Simulação do envio de e-mail
         await new Promise((resolve) => setTimeout(resolve, 2000));
         setIsEmailSent(true);
     };
@@ -40,10 +40,20 @@ export function ForgottenPassword() {
                 Recuperar Senha
             </Heading>
             {isEmailSent ? (
-                <Alert status="success" mb={4}>
-                    <AlertIcon />
-                    Um link de recuperação foi enviado para o seu e-mail.
-                </Alert>
+                <>
+                    <Alert status="success" mb={4}>
+                        <AlertIcon />
+                        Um link de recuperação foi enviado para o seu e-mail.
+                    </Alert>
+                    <Button colorScheme="teal" mt={4} onClick={() => setIsEmailSent(false)}>
+                        Anterior
+                    </Button>
+                    <Link to="/Login">
+                        <Button colorScheme="teal" mt={4} ml={4}>
+                            Voltar para página inicial
+                        </Button>
+                    </Link>
+                </>
             ) : (
                 <>
                     <Text mb={4}>
@@ -65,14 +75,13 @@ export function ForgottenPassword() {
                         onClick={handleSendLink}
                         isLoading={isEmailSent}
                         loadingText="Enviando..."
-                        to='/login'
                     >
-                        Enviar Link de Recuperação
+                        Esqueceu a Senha
                     </Button>
                 </>
             )}
         </Box>
     );
-};
+}
 
 export default ForgottenPassword;
