@@ -23,7 +23,7 @@ function App() {
                     <Route path="/cadastro" element={<Cadastro />} />
                     <Route path="/teste" element={<Teste />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/" element={<Login />} />
+                    <Route path="/Login" element={<Login />} />
                     <Route path="/cad" element={<Cad />} />
                     <Route path="/ForgottenPassword" element={<ForgottenPassword />} />
                 </Routes>
